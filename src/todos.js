@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoItem from './todoitem'
 
 export default class Todos extends React.Component {
 
@@ -13,7 +14,7 @@ export default class Todos extends React.Component {
 		}
 
 		assignTodo = e => {
-			this.setState({newTodo : e.target.value})
+			this.setState({newTodo : { name: e.target.value, completed: false}})
 		} 
 
         render() {
@@ -23,7 +24,7 @@ export default class Todos extends React.Component {
         	}
 
         	let todoItems = todos.map(todo => {
-        		return (<li>{todo}</li>)
+        		return (<TodoItem todo={todo}/>)
         	})
 
             return ( <div>
